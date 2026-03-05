@@ -1,0 +1,30 @@
+<app-navbar></app-navbar>
+
+<app-search-filter (searchChange)="onSearch($event)" (regionChange)="onRegion($event)">
+</app-search-filter>
+
+<!-- Loading -->
+<div *ngIf="loading()" class="container mx-auto flex flex-col items-center justify-center p-10">
+  <p class="center mb-4 text-lg font-semibold text-gray-700">Carregando países...</p>
+  <br>
+  <div class="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+</div>
+
+<!-- Erro -->
+<div *ngIf="error()" class="text-center p-5 text-red-500">
+  {{ error() }}
+</div>
+
+<div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6 container mx-auto ">
+
+
+
+  @for (country of filteredCountries(); track country.name.common) {
+
+  <app-card [name]="country.name.common" [population]="country.population?? 0" [region]="country.region"
+    [capital]="country.capital" [flag]="country.flags.png" [link]="country.name.common ">
+  </app-card>
+
+  }
+
+</div>

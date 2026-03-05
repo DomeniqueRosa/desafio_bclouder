@@ -1,0 +1,26 @@
+<div class="max-w-6xl mx-auto p-4 flex flex-col md:flex-row gap-4 justify-between items-center">
+
+ 
+  <input
+    type="text"
+    placeholder="Buscar pelo nome..."
+    (input)="onSearch($event)"
+    class="p-3 border rounded shadow w-full md:w-1/3 sm:w-1/2"
+  />
+
+ 
+  <select
+    (change)="onRegion($event)"
+    class="p-3 border rounded shadow w-full md:w-1/3 sm:w-1/2"
+  >
+    <option value="">Filtrar por Região</option>
+    <option>Africa</option>
+    <option>Americas</option>
+    <option>Asia</option>
+    <option>Europe</option>
+    <option>Oceania</option>
+  </select>
+
+ 
+
+</div>

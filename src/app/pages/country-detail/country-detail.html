@@ -1,0 +1,33 @@
+<app-navbar></app-navbar>
+ <!-- Loading -->
+  <div *ngIf="loading()" class="flex flex-col items-center justify-center p-10">
+  <br>
+  <p class="center mb-4 text-lg font-semibold text-gray-700">Carregando país...</p>
+  <div class="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+</div>
+
+  <!-- Erro -->
+  <div *ngIf="error()" class="text-center p-5 text-red-500">
+    {{ error() }}
+  </div>
+
+<div *ngIf="country() as c" class="flex flex-col items-center gap-4 p-8">
+
+  <div class="flex justify-around items-center gap-8 flex-wrap">
+    <h1 class="text-3xl font-bold mt-4">
+      {{ c.name.common }}
+    </h1>
+    <img [src]="c.flags.png" class="w-64">
+
+  </div>
+
+
+  <p>População: {{ c.population }}</p>
+  <p>Capital: {{ c.capital?.[0] }}</p>
+  <p>Região: {{ c.region }}</p>
+  <p>Subregião: {{ c.subregion }}</p>
+  <p>Área: {{ c.area }} km²</p>
+  <p>Línguas: {{ getLanguages() }}</p>
+  <p>Moedas: {{ getCurrencies() }}</p>
+  <p>Fronteiras: {{ getBorderCountries() }}</p>
+</div>
