@@ -1,59 +1,94 @@
 # DesafioBclouder
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.10.
+Este projeto foi gerado por  [Angular CLI](https://github.com/angular/angular-cli) version 20.3.10.
 
-## Development server
+## Tecnologias
 
-To start a local development server, run:
+![Angular](https://img.shields.io/badge/Angular-20-red)
+![Node](https://img.shields.io/badge/Node.js-LTS-green)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue)
+![Tailwind](https://img.shields.io/badge/TailwindCSS-3.x-38B2AC)
+![License](https://img.shields.io/badge/license-MIT-blue)
 
-```bash
-ng serve
+## Pré-requisitos
+
+Antes de começar, você precisa ter instalado na sua máquina:
+
+Node.js (versão LTS recomendada)
+
+npm ou yarn
+
+Angular CLI
+
+Instalar Angular CLI globalmente: ``` npm install -g @angular/cli ```
+
+Verificar instalação: ``` ng version ```
+
+## Como baixar o projeto
+
+Clone o repositório: ``` git clone https://github.com/DomeniqueRosa/desafio_bclouder.git ```
+
+Entre na pasta do projeto: ``` cd desafio-bclouder ```
+
+## Rodar o projeto
+
+Execute o servidor de desenvolvimento: ```ng serve ```
+
+A aplicação estará disponível em: http://localhost:4200
+
+## Estrutura do Projeto
+
+A aplicação segue uma organização baseada em responsabilidades para facilitar manutenção, escalabilidade e reutilização de código.
+
+```
+src/app
+ ├── components
+ ├── models
+ ├── pages
+ └── services
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- Components: Contem os componentes reutilizáveis da interface,como navbar, searc-filter e cards.
 
-## Code scaffolding
+- Pages: Contém os componentes de página, que representam as telas principais da aplicação. - Exemplo: página de listagem de países (Home) e página de detalhes (DetailCountry)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- Models: Contém a model que faz a  tipagens dos dados vindo da API.
 
-```bash
-ng generate component component-name
-```
+- Services: Contém os serviços responsáveis pela comunicação com API.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Esses serviços são injetados nos componentes ou páginas utilizando Dependency Injection do Angular.
 
-```bash
-ng generate --help
-```
+## Decisões Técnicas
 
-## Building
+### Angular 20
 
-To build the project run:
+O projeto foi desenvolvido utilizando Angular 20, aproveitando as melhorias recentes do framework, como melhor performance, suporte aprimorado a Signals e uma arquitetura mais reativa.
 
-```bash
-ng build
-```
+### Tailwind CSS
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Foi utilizado Tailwind CSS para estilização da aplicação.
 
-## Running unit tests
+Motivos da escolha: Desenvolvimento de interfaces mais rápido, Estilização diretamente no HTML através de classes utilitárias, Redução de CSS customizado, Melhor manutenção e consistência visual
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+### Mobile First
 
-```bash
-ng test
-```
+A aplicação foi desenvolvida utilizando a abordagem **mobile-first**, priorizando a experiência em dispositivos móveis e depois adaptando para telas maiores.
 
-## Running end-to-end tests
+### Angular Signals
 
-For end-to-end (e2e) testing, run:
+Implementação de Signals para controle e acompanhamento do estado da aplicação, permitindo supervisionar a comunicação com a API e o recebimento de informações, além de possibilitar o tratamento de estados de carregamento (loading) e erros
 
-```bash
-ng e2e
-```
+Motivos da escolha:
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Reatividade mais simples e previsível
 
-## Additional Resources
+Melhor performance 
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Atualização automática da UI quando o valor do signal muda
+
+Autora
+
+Desenvolvido por Alires Rosa
+
+GitHub:
+https://github.com/DomeniqueRosa
