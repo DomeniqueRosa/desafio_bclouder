@@ -15,7 +15,7 @@ import { Navbar } from '../../componentes/navbar/navbar';
 export class Home implements OnInit {
   protected readonly title = signal('desafio_bclouder');
   constructor(private countryService: Country) { }
-  countries = signal<any[]>([]);
+  countries = signal<CountryModel[]>([]);
   searchTerm = signal('');
   regionFilter = signal('');
 
@@ -32,7 +32,7 @@ export class Home implements OnInit {
     this.error.set(null);
 
     this.countryService.getCountries().subscribe({
-      next: (data : any) => {
+      next: (data : CountryModel[]) => {
         this.countries.set(data);
         this.loading.set(false);
       },
@@ -45,7 +45,7 @@ export class Home implements OnInit {
 
   filteredCountries = computed(() => {
 
-    return this.countries().filter((country: any) => {
+    return this.countries().filter((country: CountryModel) => {
 
       const matchName =
         country.name.common

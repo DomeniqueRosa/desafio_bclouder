@@ -14,7 +14,7 @@ import { CountryModel } from '../../models/country';
 })
 export class CountryDetail implements OnInit {
 
-  country = signal<any | null>(null);
+  country = signal<CountryModel | null>(null);
   loading = signal(true);
   error = signal<string | null>(null); 
 

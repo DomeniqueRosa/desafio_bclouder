@@ -11,7 +11,6 @@ export class Card {
 
   @Input() name!: string;
   @Input() population!: number;
-  @Input() currency!: string;
   @Input() flag!: string;
   @Input() region!: string;
   @Input() capital!: string;
