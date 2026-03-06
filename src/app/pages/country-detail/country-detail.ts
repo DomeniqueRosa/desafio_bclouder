@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Country } from '../../services/country';
 import { Navbar } from '../../componentes/navbar/navbar';
+import { CountryModel } from '../../models/country';
 
 @Component({
   selector: 'app-country-detail',
@@ -29,7 +30,7 @@ export class CountryDetail implements OnInit {
     const name = this.route.snapshot.paramMap.get('name');
 
     this.countryService.getCountryByName(name).subscribe({
-      next: (data : any) => {
+      next: (data : CountryModel[]) => {
         this.country.set(data[0]);
         this.loading.set(false);
       },
@@ -40,23 +41,18 @@ export class CountryDetail implements OnInit {
     });
 
   }
-  getLanguages(): string {
-    const langs = this.country()?.languages;
-    if (!langs) return '';
-    return Array.isArray(langs)
-      ? langs.map(l => l.name).join(', ')
-      : Object.values(langs).join(', ');
+  
+  getLanguages(c : CountryModel): string {
+    return c.languages ? Object.values(c.languages).join(', ') : 'N/A';
   }
-  getCurrencies(): string {
-    const currs = this.country()?.currencies;
-    if (!currs) return '';
-    return Array.isArray(currs)
-      ? currs.map(c => c.name).join(', ')
-      : Object.values(currs).map((c: any) => c.name).join(', ');
+
+  getCurrencies(c: CountryModel): string {
+    if (!c.currencies) return 'N/A';
+    return Object.values(c.currencies).map(curr => curr.name).join(', ');
   }
-  getBorderCountries(): string[] {
-    const borders = this.country()?.borders;
-    return borders ? borders : [];
+
+  getBorderCountries(c: CountryModel): string[] {
+    return c.borders ? c.borders : ['N/A'];
   }
 
 

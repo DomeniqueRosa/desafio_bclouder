@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { CountryModel } from '../models/country';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -10,16 +12,16 @@ export class Country {
 
   constructor(private http: HttpClient) { }
 
-  getCountries() {
-    return this.http.get(this.api);
+  getCountries() : Observable<CountryModel[]> {
+    return this.http.get<CountryModel[]>(this.api);
   }
 
-  getCountryByName(name: string | null) {
-    return this.http.get(`https://restcountries.com/v3.1/name/${name}`);
+  getCountryByName(name: string | null) : Observable<CountryModel[]> {
+    return this.http.get<CountryModel[]>(`https://restcountries.com/v3.1/name/${name}`);
   }
 
-  getContryByCode(code: string | null) {
-    return this.http.get(`https://restcountries.com/v3.1/alpha/${code}`);
+  getCountryByCode(code: string | null) : Observable<CountryModel[]> {
+    return this.http.get<CountryModel[]>(`https://restcountries.com/v3.1/alpha/${code}`);
   }
 
 
