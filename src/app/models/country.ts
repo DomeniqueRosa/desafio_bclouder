@@ -8,7 +8,7 @@ export interface CountryModel {
     png: string;
   };
   population: number;
-  capital?: string[];
+  capital?: string;
   region: string;
   subregion: string;
   area: number;

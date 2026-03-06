@@ -21,8 +21,8 @@
 
   @for (country of filteredCountries(); track country.name.common) {
 
-  <app-card [name]="country.name.common" [population]="country.population?? 0" [region]="country.region"
-    [capital]="country.capital" [flag]="country.flags.png" [link]="country.name.common ">
+  <app-card [name]="country.name.common" [population]="country.population" [region]="country.region"
+    [capital]="country.capital?? 'N/A'" [flag]="country.flags.png" [link]="country.name.common ">
   </app-card>
 
   }
