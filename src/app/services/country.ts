@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class Country {
 
-  private api = 'https://restcountries.com/v3.1/all?fields=name,capital,currencies,flags,population,region';
+  private api = 'https://restcountries.com/v3.1/all?fields=name,capital,flags,population,region';
 
   constructor(private http: HttpClient) { }
 
