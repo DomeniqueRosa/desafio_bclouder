@@ -30,6 +30,8 @@ Clone o repositório: ``` git clone https://github.com/DomeniqueRosa/desafio_bcl
 
 Entre na pasta do projeto: ``` cd desafio-bclouder ```
 
+Baixar dependencias: ```npm install ```
+
 ## Rodar o projeto
 
 Execute o servidor de desenvolvimento: ```ng serve ```
