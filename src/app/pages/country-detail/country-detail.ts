@@ -1,5 +1,5 @@
 import { Component, signal, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Country } from '../../services/country';
 import { Navbar } from '../../componentes/navbar/navbar';
@@ -8,7 +8,7 @@ import { CountryModel } from '../../models/country';
 @Component({
   selector: 'app-country-detail',
   standalone: true,
-  imports: [CommonModule, Navbar],
+  imports: [CommonModule, Navbar, RouterLink],
   templateUrl: './country-detail.html',
   styleUrl: './country-detail.css',
 })
