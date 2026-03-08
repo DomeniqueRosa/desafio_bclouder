@@ -11,5 +11,9 @@ export const routes: Routes = [
     {
         path: 'country/:name',
         component: CountryDetail
+    },
+    {
+        path: 'country/code/:code',
+        component: CountryDetail
     }
 ];

@@ -27,17 +27,38 @@ export class CountryDetail implements OnInit {
 
     this.error.set(null);
 
-    const name = this.route.snapshot.paramMap.get('name');
+    this.route.paramMap.subscribe(params => {
+      const name = params.get('name');
+      const code = params.get('code');
 
-    this.countryService.getCountryByName(name).subscribe({
-      next: (data : CountryModel[]) => {
-        this.country.set(data[0]);
-        this.loading.set(false);
-      },
-      error: (err) => {
-        this.error.set('Erro ao carregar os detalhes do país');
-        this.loading.set(false);
-      },
+    if(name){
+
+      this.countryService.getCountryByName(name).subscribe({
+        next: (data : CountryModel[]) => {
+          this.country.set(data[0]);
+          this.loading.set(false);
+        },
+        error: (err) => {
+          this.error.set('Erro ao carregar os detalhes do país');
+          this.loading.set(false);
+        },
+      });
+    }
+
+    if(code){
+      
+      this.countryService.getCountryByCode(code).subscribe({
+        next: (data : CountryModel[]) => {
+          this.country.set(data[0]);
+          this.loading.set(false);
+        },
+        error: (err) => {
+          this.error.set('Erro ao carregar os detalhes do país');
+          this.loading.set(false);
+        },
+      });
+    }
+
     });
 
   }
